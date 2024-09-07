@@ -1,0 +1,1 @@
+export { PulseMaterial } from "./PulseMaterial";
