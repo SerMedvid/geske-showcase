@@ -34,7 +34,7 @@ export default function Loader() {
 			}
 		},
 		[isReady],
-		{ wait: 100 }
+		{ wait: 1000 }
 	);
 
 	if (!canShow) return null;

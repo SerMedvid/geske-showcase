@@ -9,7 +9,7 @@ const ExperienceLayout = dynamic(
 
 export default function Home() {
 	return (
-		<main className="h-svh w-svw">
+		<main className="h-svh w-svw bg-neutral-950">
 			<ExperienceLayout />
 		</main>
 	);
