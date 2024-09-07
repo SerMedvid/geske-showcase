@@ -2,7 +2,7 @@ import { useProgress } from "@react-three/drei";
 import { useDebounceEffect } from "ahooks";
 import React, { useEffect, useRef, useState } from "react";
 import useStore from "@/store/useStore";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import * as animationData from "@/animation/loader.json";
 
 export default function Loader() {
@@ -47,11 +47,9 @@ export default function Loader() {
 		>
 			<div className="flex flex-col max-w-xs text-white justify-center">
 				<Lottie
-					options={{
-						loop: true,
-						autoplay: true,
-						animationData: animationData,
-					}}
+					loop={true}
+					autoplay={true}
+					animationData={animationData}
 				/>
 				<h1 className="text-center">
 					Cooking your experience <span ref={progressSpanRef} />%
