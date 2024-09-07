@@ -1,4 +1,11 @@
-import ExperienceLayout from "@/features/Showcase/components/ExperienceLayout";
+import dynamic from "next/dynamic";
+
+const ExperienceLayout = dynamic(
+	() => import("@/features/Showcase/components/ExperienceLayout"),
+	{
+		ssr: false,
+	}
+);
 
 export default function Home() {
 	return (

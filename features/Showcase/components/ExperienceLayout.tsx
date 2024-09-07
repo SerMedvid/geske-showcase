@@ -49,7 +49,6 @@ export default function ExperienceLayout() {
 				eventSource={containerRef}
 				ref={canvasRef}
 				camera={{ position: [0, 5, 0] }}
-				cal
 			>
 				<Preload all />
 				<View.Port />
