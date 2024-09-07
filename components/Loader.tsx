@@ -6,7 +6,7 @@ import Lottie from "lottie-react";
 import * as animationData from "@/animation/loader.json";
 
 export default function Loader() {
-	const { progress } = useProgress();
+	const progress = useProgress((state) => state.progress);
 	const prevProgress = useRef(0);
 	const progressSpanRef = useRef<HTMLSpanElement>(null);
 	const [canShow, setCanShow] = useState(true);
