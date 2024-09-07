@@ -11,7 +11,7 @@ export default function GlassBase({
 	return (
 		<div
 			{...props}
-			className={` bg-slate-300 bg-opacity-30 backdrop-filter backdrop-blur-lg ${className}`}
+			className={` bg-slate-200 bg-opacity-20 backdrop-filter backdrop-blur-lg ${className}`}
 		>
 			{children}
 		</div>
