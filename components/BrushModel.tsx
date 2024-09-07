@@ -30,8 +30,7 @@ export function BrushModel(props: JSX.IntrinsicElements["group"]) {
 
 	const bodyMaterialRef = useRef<THREE.ShaderMaterial>(null);
 	const metalMaterialRef = useRef<THREE.ShaderMaterial>(null);
-	const bitsMaterialRef =
-		useRef<typeof materials.M_B0007_SonicThermoFacialBrush6in1_Bits>();
+	const bitsMaterialRef = useRef<THREE.MeshStandardMaterial>(null);
 
 	const bodyMeshRef =
 		useRef<THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>(null);
@@ -70,8 +69,7 @@ export function BrushModel(props: JSX.IntrinsicElements["group"]) {
 				if (
 					!selectedColor ||
 					!metalMaterialRef.current ||
-					!bodyMaterialRef.current ||
-					!bitsMaterialRef.current
+					!bodyMaterialRef.current
 				)
 					return;
 
@@ -81,10 +79,6 @@ export function BrushModel(props: JSX.IntrinsicElements["group"]) {
 					metalMaterialRef.current.uniforms.uTextureEnd.value ?? nextTexture;
 
 				if (!prevTexture || !nextTexture) return;
-
-				gsap.set(bitsMaterialRef.current, {
-					map: nextTexture,
-				});
 
 				gsap.set(
 					[
@@ -139,8 +133,6 @@ export function BrushModel(props: JSX.IntrinsicElements["group"]) {
 		material.roughnessMap = bitsTexture;
 		material.aoMap = bitsTexture;
 
-		bitsMaterialRef.current = material;
-
 		return material;
 	}, [bitsTexture, materials.M_B0007_SonicThermoFacialBrush6in1_Bits]);
 
@@ -153,7 +145,12 @@ export function BrushModel(props: JSX.IntrinsicElements["group"]) {
 				geometry={nodes.B0007_SonicThermoFacialBrush6in1_Bits.geometry}
 				material={bitsMaterial}
 				castShadow
-			/>
+			>
+				<meshStandardMaterial
+					ref={bitsMaterialRef}
+					color={"#787878"}
+				/>
+			</mesh>
 			<mesh
 				geometry={nodes.B0007_SonicThermoFacialBrush6in1_Metal.geometry}
 				castShadow
