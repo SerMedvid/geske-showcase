@@ -39,7 +39,7 @@ export default function PulseBackground() {
 			<div className="w-full h-full fixed top-0 left-0 pointer-events-none flex items-center justify-center brightness-90">
 				<div
 					ref={pulseRef}
-					className="w-[40vw] h-[40vw] rounded-full relative"
+					className="min-w-96 w-[40vw] min-h-96 h-[40vw] rounded-full relative"
 					style={{ "--pulse-color": DEFAULT_COLOR } as React.CSSProperties}
 				>
 					{Array.from({ length: 4 }).map((_, i) => (

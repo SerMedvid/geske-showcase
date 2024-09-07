@@ -15,7 +15,7 @@ export default function ExperienceLayout() {
 
 	return (
 		<div
-			className="h-svh w-svw"
+			className="h-svh w-svw select-none touch-none"
 			ref={containerRef}
 		>
 			<PulseBackground />
@@ -26,7 +26,7 @@ export default function ExperienceLayout() {
 				</Suspense>
 			</View>
 
-			<div className="fixed top-1/2 left-7 -translate-y-1/2 w-16 flex items-center justify-center flex-col gap-4">
+			<div className="fixed left-1/2 top-10 -translate-x-1/2 flex items-center justify-center flex-row  gap-4 md:top-1/2 md:left-7 md:-translate-y-1/2 md:translate-x-0 md:flex-col">
 				<Thumb
 					displayRotation={[-Math.PI / 2, -Math.PI / 2, 0]}
 					modelRotation={[0, -Math.PI / 2, 0]}

@@ -27,7 +27,7 @@ export default function Thumb({
 			onPointerEnter={() => setIsHovered(true)}
 			onPointerLeave={() => setIsHovered(false)}
 		>
-			<View className="w-full h-16 relative">
+			<View className="w-16 h-16 relative">
 				<BrushModel
 					scale={35}
 					rotation={modelRotation}
