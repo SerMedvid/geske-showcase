@@ -5,9 +5,10 @@ import Experience from "./Experience";
 import { Preload, View } from "@react-three/drei";
 import ColorPickerPalette from "@/components/ColorPickerPalette";
 import Thumb from "./Thumb";
-import { Suspense, useRef } from "react";
+import { useRef } from "react";
 import PulseBackground from "./PulseBackground";
 import Loader from "@/components/Loader";
+import { Perf } from "r3f-perf";
 
 export default function ExperienceLayout() {
 	const containerRef = useRef<HTMLDivElement | null>(null);
@@ -21,9 +22,7 @@ export default function ExperienceLayout() {
 			<PulseBackground />
 
 			<View className="absolute top-0 left-0 w-full h-full">
-				<Suspense fallback={null}>
-					<Experience />
-				</Suspense>
+				<Experience />
 			</View>
 
 			<div className="fixed left-1/2 top-10 -translate-x-1/2 flex items-center justify-center flex-row  gap-4 md:top-1/2 md:left-7 md:-translate-y-1/2 md:translate-x-0 md:flex-col">
@@ -42,7 +41,6 @@ export default function ExperienceLayout() {
 			</div>
 
 			<Canvas
-				shadows={true}
 				gl={{ alpha: true }}
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 				// @ts-ignore
@@ -52,6 +50,10 @@ export default function ExperienceLayout() {
 			>
 				<Preload all />
 				<View.Port />
+				<Perf
+					position="top-left"
+					showPanel={false}
+				/>
 			</Canvas>
 
 			<ColorPickerPalette />
