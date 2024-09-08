@@ -32,6 +32,7 @@ export const colorsData = new Map([
 			name: "Gray",
 			hex: "#1D252D",
 			texture: "/textures/512/Body_GreyBlack_D.png.webp",
+			labelHex: ["#674223", "#2D2926"],
 		},
 	],
 	[

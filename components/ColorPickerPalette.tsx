@@ -7,12 +7,13 @@ export default function ColorPickerPalette() {
 
 	return (
 		<GlassBase className="p-5 rounded-full fixed bottom-7 right-1/2 translate-x-1/2 shadow-sm md:right-7 md:translate-x-0 md:bottom-1/2 md:translate-y-1/2">
-			<div className="flex flex-wrap gap-5 flex-row justify-center w-56 md:flex-col md:w-auto">
+			<div className="flex flex-wrap gap-5 flex-row justify-center w-56 md:flex-col md:w-auto md:gap-7">
 				{Array.from(colors.entries()).map(([id, color]) => (
 					<ColorPickerItem
 						key={id}
 						id={id}
 						color={color.hex}
+						labelHex={color.labelHex}
 					/>
 				))}
 			</div>
