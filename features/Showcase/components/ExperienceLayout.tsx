@@ -4,11 +4,11 @@ import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
 import { Preload, View } from "@react-three/drei";
 import ColorPickerPalette from "@/components/ColorPickerPalette";
-import Thumb from "./Thumb";
 import { useRef } from "react";
 import PulseBackground from "./PulseBackground";
 import Loader from "@/components/Loader";
 import { Perf } from "r3f-perf";
+import ThumbPanels from "./ThumbPanels";
 
 export default function ExperienceLayout() {
 	const containerRef = useRef<HTMLDivElement | null>(null);
@@ -25,20 +25,7 @@ export default function ExperienceLayout() {
 				<Experience />
 			</View>
 
-			<div className="fixed left-1/2 top-10 -translate-x-1/2 flex items-center justify-center flex-row  gap-4 md:top-1/2 md:left-7 md:-translate-y-1/2 md:translate-x-0 md:flex-col">
-				<Thumb
-					displayRotation={[-Math.PI / 2, -Math.PI / 2, 0]}
-					modelRotation={[0, -Math.PI / 2, 0]}
-				/>
-				<Thumb
-					displayRotation={[-Math.PI / 2, -Math.PI / 5, 0]}
-					modelRotation={[0, -Math.PI / 5, 0]}
-				/>
-				<Thumb
-					displayRotation={[-Math.PI / 2, Math.PI, 0]}
-					modelRotation={[0, Math.PI, 0]}
-				/>
-			</div>
+			<ThumbPanels />
 
 			<Canvas
 				gl={{ alpha: true }}
@@ -50,10 +37,8 @@ export default function ExperienceLayout() {
 			>
 				<Preload all />
 				<View.Port />
-				<Perf
-					position="top-left"
-					showPanel={false}
-				/>
+				{/** use this to check for performance insights */}
+				{false && <Perf position="top-left" />}
 			</Canvas>
 
 			<ColorPickerPalette />
